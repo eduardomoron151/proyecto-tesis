@@ -4,7 +4,6 @@ const password = document.querySelector('#password');
 const btnIniciarSesion = document.querySelector('#iniciarSesion');
 
 const url = window.location;
-alert(url);
 
 // eventListeners
 btnIniciarSesion.addEventListener('click', async (e) => {
