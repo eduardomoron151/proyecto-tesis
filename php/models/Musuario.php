@@ -63,7 +63,7 @@
 
     }
 
-    if($_GET["tipo"] == "buscarUsuario") {
+    if(isset($_GET['tipo']) && $_GET["tipo"] == "buscarUsuario") {
         
         $cedula = (int)$_GET["cedula"];
 
