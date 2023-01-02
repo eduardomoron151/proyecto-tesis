@@ -1,3 +1,6 @@
+<?php
+    include_once "./php/functions/sesiones.php";
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,6 +17,9 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- estilos propios -->
+    <link rel="stylesheet" href="css/main.css">
 
 </head>
 
@@ -43,8 +49,8 @@
                     <div class="row">
                         <form method="POST" id="formularioBuscarAuditoria" class="d-none d-sm-inline-block form-inline my-4 mx-auto p-auto">
                             <div class="input-group">
-                                <input type="text" id="cedulaIndicador" class="form-control border-1 small" placeholder="Indique cedula" autofocus>
-                                <div class="input-group-append">
+                                <input type="text" id="cedulaBuscar" class="form-control border-1 small" placeholder="Indique cedula" autofocus>
+                                <div id="btnCedulaBuscar" class="input-group-append">
                                     <button class="btn btn-primary" type="submit">
                                         <i class="fas fa-search fa-sm"></i>
                                     </button>
@@ -72,6 +78,7 @@
                                                     <th>Apellido</th>
                                                     <th>Usuario</th>
                                                     <th>Cedula</th>
+                                                    <th>Rol</th>
                                                     <th>Fecha creacion</th>
                                                     <th>Fecha actualizacion</th>
                                                     <th>Accion</th>
@@ -79,14 +86,17 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>Eduardo</td>
-                                                    <td>Moron</td>
-                                                    <td>moronen</td>
-                                                    <td>20740857</td>
-                                                    <td>24-12-2022</td>
-                                                    <td>27-12-2022</td>
+                                                    <td id="nombre"></td>
+                                                    <td id="apellido"></td>
+                                                    <td id="usuario"></td>
+                                                    <td id="cedula"></td>
+                                                    <td id="rol"></td>
+                                                    <td id="fe_creacion">N/A</td>
+                                                    <td id="fe_actualizacion">N/A</td>
+
                                                     <td>
-                                                        <button class="btn btn-danger btn-block btn-sm">Eliminar</button>
+                                                        <input type="hidden" id="idusuario">
+                                                        <button id="eliminarUsuario" class="btn btn-danger btn-block btn-sm">Eliminar</button>
                                                     </td>
 
                                                 </tr>
@@ -134,12 +144,16 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+
+    <!-- sweetalert -->
+    <script src="js/sweetalert2@11.js"></script>
+
+    <!-- Axios -->
+    <script src="js/axios.min.js"></script>
+
+    <script src="js/eliminarUsuario.js"></script>
+
 
 
 </body>

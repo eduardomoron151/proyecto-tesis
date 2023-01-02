@@ -1,3 +1,7 @@
+<?php 
+    include_once "./php/functions/sesiones.php";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,6 +18,10 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- estilos propios -->
+    <link rel="stylesheet" href="css/main.css">
+    
 
 </head>
 
@@ -41,11 +49,11 @@
 
                     <!-- Boton para buscar en auditoria -->
                     <div class="row">
-                        <form method="POST" id="formularioBuscarAuditoria" class="d-none d-sm-inline-block form-inline my-4 mx-auto p-auto">
+                        <form class="d-none d-sm-inline-block form-inline my-4 mx-auto p-auto">
                             <div class="input-group">
-                                <input type="text" id="cedulaIndicador" class="form-control border-1 small" placeholder="Indique cedula" autofocus>
+                                <input type="text" id="cedulaBuscar" class="form-control border-1 small" placeholder="Indique cedula" autofocus>
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary" type="submit">
+                                    <button id="btnCedulaBuscar" class="btn btn-primary" type="submit">
                                         <i class="fas fa-search fa-sm"></i>
                                     </button>
                                 </div>
@@ -63,7 +71,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Usuario</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800 text-capitalize">
-                                                <span id="usuarioAuditoria">moronen</span>
+                                                <span id="usuario"></span>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -75,7 +83,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Cedula</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <span id="cedulaAuditoria">20740857</span>
+                                                <span id="cedula"></span>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -87,7 +95,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Nombre</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <span id="cedulaAuditoria">Eduardo</span>
+                                                <span id="nombre"></span>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -99,7 +107,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Apellido</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <span id="cedulaAuditoria">Moron</span>
+                                                <span id="apellido"></span>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -111,7 +119,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Rol</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <span id="correoAuditoria">Administrador</span>
+                                                <span id="rol"></span>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -123,7 +131,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Fecha de registro</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <span id="fechaRegistroAuditoria">24-12-2022</span>
+                                                <span id="fe_creacion">N/A</span>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -135,7 +143,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Fecha de Actualización</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <span id="fechaActualizadoAuditoria">Sin fecha de actualizacion</span>
+                                                <span id="fe_actualizacion">N/A</span>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -183,12 +191,15 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+
+    <!-- sweetalert -->
+    <script src="js/sweetalert2@11.js"></script>
+
+    <!-- Axios -->
+    <script src="js/axios.min.js"></script>
+
+    <script src="js/consultarUsuario.js"></script>
 
 
 </body>

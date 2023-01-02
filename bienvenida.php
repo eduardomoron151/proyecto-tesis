@@ -1,3 +1,6 @@
+<?php
+    include_once "./php/functions/sesiones.php";
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,6 +19,9 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- estilos propios -->
+    <link rel="stylesheet" href="css/main.css">
 
 </head>
 
@@ -39,7 +45,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Bienvenido Eduardo Moron</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Bienvenido, <?php echo $_SESSION["tx_nombre"] . ' ' . $_SESSION["tx_apellido"] ?></h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>

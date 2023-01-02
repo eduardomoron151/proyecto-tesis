@@ -1,3 +1,19 @@
+<?php 
+    session_start();
+
+    $cerrarSesion = $_GET["cerrar_sesion"];
+
+    if($cerrarSesion == 'true') {
+        session_destroy();
+        $_SESSION = [];
+    }
+
+    if(isset($_SESSION["id_usuarios"])) {
+        header("Location: bienvenida.php");
+    }
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,13 +23,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>SISTEMA DE REPORTES</title>
-
-    
-
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- estilos propios -->
+    <link rel="stylesheet" href="css/main.css">
+
+    
 </head>
 <body class="bg-gradient-primary">
     <div class="container">
@@ -21,6 +39,17 @@
             <div class="col-xl-10 col-lg-12 col-md-9">
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-5">
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <img class="img-login" src="img/soporte.jfif" alt="imagen pdval" >
+                            </div>
+                            <div class="col-md-6 d-none d-md-block">
+                                SISTEMA ADMINISTRATIVO DE SOPORTE
+                            </div>
+                            <div class="col-md-3">
+                                <img class="img-login" src="img/pdval.png" alt="imagen pdval" >
+                            </div>
+                        </div>
                         <div class="row justify-content-center">
                             <div class="col-lg-6">
                                 <div class="p-5">
@@ -48,8 +77,8 @@
                                                     name="password"
                                                     placeholder="Indique su contraseña...">
                                             </div>
-                                            <button id="iniciarSesion" class="btn btn-primary btn-user btn-block">Iniciar Sesion</button>
                                             <hr>
+                                            <button id="iniciarSesion" class="btn btn-primary btn-user btn-block">Iniciar Sesion</button>
                                         </form>
                                     </div>
                                 </div>

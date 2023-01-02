@@ -1,3 +1,16 @@
+<?php
+    include_once "./php/functions/sesiones.php";
+    include_once "./php/conexion.php";
+
+    $sql = "SELECT id_rol, tx_nombre FROM tb_002_rol";
+    $resultado = $db->query($sql);
+    // $data = $resultado->fetch_all();
+
+    while($row = $resultado->fetch_assoc() ){
+        $respuesta[] = $row;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,6 +27,9 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- estilos propios -->
+    <link rel="stylesheet" href="css/main.css">
 
 </head>
 
@@ -41,10 +57,10 @@
 
                     <!-- Boton para buscar en auditoria -->
                     <div class="row">
-                        <form method="POST" id="formularioBuscarAuditoria" class="d-none d-sm-inline-block form-inline my-4 mx-auto p-auto">
+                        <form class="d-none d-sm-inline-block form-inline my-4 mx-auto p-auto">
                             <div class="input-group">
-                                <input type="text" id="cedulaIndicador" class="form-control border-1 small" placeholder="Indique cedula" autofocus>
-                                <div class="input-group-append">
+                                <input type="text" id="cedulaBuscar" class="form-control border-1 small" placeholder="Indique cedula" autofocus>
+                                <div id="btnCedulaBuscar" class="input-group-append">
                                     <button class="btn btn-primary" type="submit">
                                         <i class="fas fa-search fa-sm"></i>
                                     </button>
@@ -61,6 +77,8 @@
                                     <h1 class="h4 text-gray-900 mb-4">Datos a Actualizar</h1>
                                 </div>
                                 <form class="user">
+                                        <input type="hidden" id="idusuario">
+
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user" id="nombre" placeholder="Ingrese el nombre">
                                     </div>
@@ -84,15 +102,15 @@
 
                                     <div class="form-group">
                                         <label for="">Seleccione un Rol:</label>
-                                        <select class="form-control" name="" id="">
+                                        <select class="form-control" name="rol" id="rol">
                                             <option selected disabled value="">-Opciones-</option>
-                                            <option value="1">Administrador</option>
-                                            <option value="2">Tecnico</option>
-                                            <option value="3">Usuario</option>
+                                            <?php foreach ($respuesta as $key => $value) { ?>
+                                                <option value="<?php echo $value['id_rol']; ?>"><?php echo $value["tx_nombre"]; ?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
 
-                                    <button class="btn btn-primary btn-user btn-block">Actualizar</button>
+                                    <button id="actualizarUsuario" class="btn btn-primary btn-user btn-block">Actualizar</button>
                                     <hr>
                                 </form>
                             </div>
@@ -132,12 +150,15 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+
+    <!-- sweetalert -->
+    <script src="js/sweetalert2@11.js"></script>
+
+    <!-- Axios -->
+    <script src="js/axios.min.js"></script>
+
+    <script src="js/modificarUsuario.js"></script>
 
 
 </body>

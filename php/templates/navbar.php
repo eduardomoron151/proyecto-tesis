@@ -1,8 +1,4 @@
-<?php
 
-    
-
-?>
     <!-- Topbar -->
     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -10,6 +6,20 @@
         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
         </button>
+
+        <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <img class="img-pdval" src="img/soporte.jfif" alt="imagen pdval" >
+                </div>
+                <div class="col-md-6">
+                    SISTEMA ADMINISTRATIVO DE SOPORTE
+                </div>
+                <div class="col-md-3">
+                    <img class="img-pdval" src="img/pdval.png" alt="imagen pdval" >
+                </div>
+            </div>
+        </div>
 
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
@@ -20,7 +30,7 @@
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Eduardo Moron</span>
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"> Usuario : <?php echo $_SESSION["tx_usuario"]; ?> </span>
                     <img class="img-profile rounded-circle"
                         src="img/undraw_profile.svg">
                 </a>
@@ -53,7 +63,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="index.php">Cerrar Sesion</a>
+                    <a class="btn btn-primary" href="index.php?cerrar_sesion=true">Cerrar Sesion</a>
                 </div>
             </div>
         </div>

@@ -1,3 +1,16 @@
+<?php 
+    include_once "./php/functions/sesiones.php";
+    include_once "./php/conexion.php";
+
+    $sql = "SELECT id_rol, tx_nombre FROM tb_002_rol";
+    $resultado = $db->query($sql);
+    // $data = $resultado->fetch_all();
+
+    while($row = $resultado->fetch_assoc() ){
+        $respuesta[] = $row;
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,6 +27,9 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- estilos propios -->
+    <link rel="stylesheet" href="css/main.css">
 
 </head>
 
@@ -71,15 +87,17 @@
 
                                     <div class="form-group">
                                         <label for="">Seleccione un Rol:</label>
-                                        <select class="form-control" name="" id="">
+                                        <select class="form-control" name="rol" id="rol">
                                             <option selected disabled value="">-Opciones-</option>
-                                            <option value="1">Administrador</option>
-                                            <option value="2">Tecnico</option>
-                                            <option value="3">Usuario</option>
+                                            <?php foreach ($respuesta as $key => $value) { ?>
+                                                <option value="<?php echo $value['id_rol']; ?>"><?php echo $value["tx_nombre"]; ?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
 
-                                    <button class="btn btn-primary btn-user btn-block">Registrar</button>
+                                                
+
+                                    <button id="registrarUsuario" class="btn btn-primary btn-user btn-block">Registrar</button>
                                     <hr>
                                 </form>
                             </div>
@@ -118,12 +136,14 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <!-- sweetalert -->
+    <script src="js/sweetalert2@11.js"></script>
+
+    <!-- Axios -->
+    <script src="js/axios.min.js"></script>
+
+    <script src="js/registrarUsuario.js"></script>
 
 
 </body>

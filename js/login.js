@@ -3,7 +3,7 @@ const usuario = document.querySelector('#usuario');
 const password = document.querySelector('#password');
 const btnIniciarSesion = document.querySelector('#iniciarSesion');
 
-const url = window.location;
+
 
 // eventListeners
 btnIniciarSesion.addEventListener('click', async (e) => {
@@ -15,23 +15,16 @@ btnIniciarSesion.addEventListener('click', async (e) => {
             title: 'Advertencia',
             text: 'Debe escribir su Usuario y Contraseña',
         });
+        return;
     }
 
     try {
-
-        const formData = {
+        const respuesta = await axios.post('php/models/Mlogin.php', {
             usuario : usuario.value,
             password : password.value
-        }
-
-        const respuesta = await axios.post(url + 'php/models/Mlogin.php', {
-            formData
         });
 
-        console.log(respuesta);
-        // TODO: manejar respuesta y redirigir a la pagina de bienvenida
-
-        if(respuesta) {
+        if(respuesta.data.tipo == "success") {
             Swal.fire({
                 icon: 'success',
                 title: 'Inicio exitoso',
@@ -41,8 +34,13 @@ btnIniciarSesion.addEventListener('click', async (e) => {
             setTimeout(() => {
                 window.location.href = "bienvenida.php";
             }, 1500)
+        } else if(respuesta.data.tipo == "warning") {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Advertencia',
+                text: 'Credenciales invalidas',
+            });
         }
-
 
     } catch (error) {
         console.log(error);
