@@ -5,7 +5,7 @@
     $_POST = json_decode(file_get_contents("php://input"),true);
     date_default_timezone_set("america/caracas");
 
-    if($_POST["tipo"] == "registrarUsuario") {
+    if(isset($_POST['tipo']) && $_POST["tipo"] == "registrarUsuario") {
 
         $nombre = $_POST["nombre"];
         $apellido = $_POST["apellido"];
@@ -96,7 +96,7 @@
 
     }
 
-    if($_POST["tipo"] == "actualizarUsuario") {
+    if(isset($_POST["tipo"]) && $_POST["tipo"] == "actualizarUsuario") {
 
         $nombre = $_POST["nombre"];
         $apellido = $_POST["apellido"];
@@ -139,7 +139,7 @@
 
     }
 
-    if($_POST["tipo"] == "eliminarUsuario") {
+    if(isset($_POST["tipo"]) && $_POST["tipo"] == "eliminarUsuario") {
 
         $idusuario = (int)$_POST["idusuario"];
 
