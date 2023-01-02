@@ -1,12 +1,16 @@
 <?php 
     session_start();
 
-    $cerrarSesion = $_GET["cerrar_sesion"];
+    if(isset($_GET['cerrar_sesion'])) {
+        $cerrarSesion = $_GET["cerrar_sesion"];
 
-    if($cerrarSesion == 'true') {
-        session_destroy();
-        $_SESSION = [];
+        if($cerrarSesion == 'true') {
+            session_destroy();
+            $_SESSION = [];
+        }
+    
     }
+
 
     if(isset($_SESSION["id_usuarios"])) {
         header("Location: bienvenida.php");
