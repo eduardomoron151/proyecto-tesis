@@ -47,8 +47,8 @@
                             <div class="col-md-3">
                                 <img class="img-login" src="img/soporte.jfif" alt="imagen pdval" >
                             </div>
-                            <div class="col-md-6 d-none d-md-block">
-                                SISTEMA ADMINISTRATIVO DE SOPORTE
+                            <div class="col-md-6 d-none d-lg-block">
+                                <h5>Sistema Administrativo de Soporte</h5>
                             </div>
                             <div class="col-md-3">
                                 <img class="img-login" src="img/pdval.png" alt="imagen pdval" >

@@ -57,7 +57,7 @@
 
                     <!-- Boton para buscar en auditoria -->
                     <div class="row">
-                        <form class="d-none d-sm-inline-block form-inline my-4 mx-auto p-auto">
+                        <form class="d-sm-inline-block form-inline my-4 mx-auto p-auto">
                             <div class="input-group">
                                 <input type="text" id="cedulaBuscar" class="form-control border-1 small" placeholder="Indique cedula" autofocus>
                                 <div id="btnCedulaBuscar" class="input-group-append">
