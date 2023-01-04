@@ -50,6 +50,8 @@
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
 
+                    <?php if($_SESSION['id_rol'] != 4 ): ?>
+
                     <!-- Content Row -->
                     <div class="row">
 
@@ -121,7 +123,6 @@
                     </div>
 
                     <!-- Content Row -->
-
                     <div class="row">
 
                         <!-- Area Chart -->
@@ -167,6 +168,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <?php endif; ?>
+
+                    
                 </div>
                 <!-- /.container-fluid -->
 
