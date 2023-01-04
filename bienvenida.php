@@ -181,9 +181,12 @@
                                         <h6 class="m-0 font-weight-bold text-primary">Enlaces de Interes</h6>
                                     </div>
                                     <div class="card-body">
-                                        <a href="https://www.bcv.org.ve/" target="_blank">Banco de Venezuela</a>
-                                        <a href="https://www.bcv.org.ve/" target="_blank">Banco de Venezuela</a>
-                                        <a href="https://www.bcv.org.ve/" target="_blank">Banco de Venezuela</a>
+                                        <a href="https://www.bcv.org.ve/" target="_blank">Banco Central de Venezuela</a>
+                                        <br>
+                                        <a href="https://www.patria.org.ve/" target="_blank">Patria</a>
+                                        <br>
+                                        <a href="https://www.pdval.gob.ve/portal/" target="_blank">PDVAL</a>
+                                        <br>
 
                                     </div>
                                 </div>
