@@ -1,4 +1,5 @@
-<?php 
+<?php
+
     session_start();
 
     if(isset($_GET['cerrar_sesion'])) {
