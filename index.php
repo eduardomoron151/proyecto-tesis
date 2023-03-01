@@ -16,8 +16,6 @@
     if(isset($_SESSION["id_usuarios"])) {
         header("Location: bienvenida.php");
     }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
